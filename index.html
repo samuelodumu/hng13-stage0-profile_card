@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Samuel's Profile Card</title>
+</head>
+<body>
+    <div class="container-fluid bg-secondary justify-content-center align-items-center d-flex vh-100">
+        <article class="profile-card bg-text-light col-lg-8" data-testid="test-profile-card">
+            <div class="bg-light p-3 rounded-3">
+                <div class="row align-items-center justify-content-center text-dark-subtle">
+                    <figure class="col-lg-5 justify-self-center text-center mb-0">
+                        <p data-testid="test-user-time" class="fw-bold" id="current-time"></p>
+                        <img src="img/samuel_profile.png" data-testid="test-user-avatar" class="w-75 h-auto rounded-circle mb-4" alt="Profile Picture" srcset="">
+                    </figure>
+                    <header class="col-lg-7">
+                        <h2 class="name" data-testid="test-user-name">Samuel Odumu</h2>
+                        <p class="bio" data-testid="test-user-bio">Hi! I'm Samuel the frontend guy, I really like making stunning visuals and hope to get better at it with each new project I build. When I'm not working I like watching a good movie, reading a book, or playing chess. </p>
+                    </header>
+                </div>
+            </div>
+            <div class="socials bg-light rounded mt-2 p-3 d-flex justify-content-center">
+                <ul data-testid="test-user-social-links" class="links text-decoration-none d-flex gap-4 list-unstyled mb-0 text-dark-subtle">
+                    <li>
+                        <i class="bi bi-dash-lg fs-5 text-dark-subtle"></i>
+                    </li>
+                    <li>
+                        <i class="bi bi-threads fs-5 text-dark-subtle"><a href="https://www.threads.com/@themainsamuel" data-testid="test-user-social-threads" target="_blank" rel="noopener noreferrer"></a></i>
+                    </li>
+                    <li>
+                        <i class="bi bi-twitter-x fs-5 text-dark-subtle"><a href="https://x.com/themainsamuel" data-testid="test-user-social-twitter" target="_blank" rel="noopener noreferrer"></a></i>
+                    </li>
+                    <li>
+                        <i class="bi bi-linkedin fs-5 text-dark-subtle"><a href="https://www.linkedin.com/in/samuelodumu" data-testid="test-user-social-linkedin" target="_blank" rel="noopener noreferrer"></a></i>
+                    </li>
+                    <li>
+                        <i class="bi bi-github-x fs-5 text-dark-subtle"><a href="https://github.com/samuelodumu" data-testid="test-user-social-github" target="_blank" rel="noopener noreferrer"></a></i>
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </div>
+    <script>
+        // get and insert current time in UTC format
+        function updateTime() {
+            let now = new Date();
+
+            let hours = now.getUTCHours().toString().padStart(2, '0');
+            let minutes = now.getUTCMinutes().toString().padStart(2, '0');
+            let seconds = now.getUTCSeconds().toString().padStart(2, '0');
+            let milliseconds = now.getUTCMilliseconds().toString().padStart(3, '0');
+            
+            // Format: HH:MM:SS.mmm GMT
+            let timeWithMilliseconds = `${hours}:${minutes}:${seconds}.${milliseconds} GMT`;
+            document.getElementById('current-time').innerText = timeWithMilliseconds;
+        }
+
+        setInterval(updateTime, 10);
+        updateTime(); // initial call to prevent delay
+    </script>
+</body>
+</html>
