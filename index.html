@@ -86,7 +86,7 @@
             let milliseconds = now.getUTCMilliseconds().toString().padStart(3, '0');
             
             // Format: HH:MM:SS.mmm GMT
-            let timeWithMilliseconds = `${hours}:${minutes}:${seconds}.${milliseconds} GMT`;
+            let timeWithMilliseconds = `Time: ${hours}:${minutes}:${seconds}.${milliseconds} GMT`;
             document.getElementById('current-time').innerText = timeWithMilliseconds;
         }
 
